@@ -1,4 +1,4 @@
-const apiKey = "c4f07ff4";
+const apiKey = "b8aa1791";
 const imgDefault = "./default_image.png";
 
 async function buscaFilme(nomeBusca){
