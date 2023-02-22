@@ -1,2 +1,2 @@
-# Bucar-filmes
+# Buscar-filmes
 Buscador de filmes
