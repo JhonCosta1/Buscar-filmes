@@ -27,7 +27,7 @@ p {
 
 .container {
     width: 450px;
-    height: 570px;
+    height: 590px;
     margin: 20px;
     background: white;
     border-radius: 10px;
@@ -38,9 +38,7 @@ p {
     border-radius: 10px;
     width: 400px;
     height: 250px;
-    margin-top: 25px;
-    margin-left: 25px;
-    margin-right: 25px;
+    margin: 25px auto;
 }
 
 /* Informações APP*/
@@ -102,14 +100,6 @@ p {
 
 /*Informações Filmes*/
 
-.poster {
-    border-radius: 10px;
-    width: 400px;
-    height: 250px;
-    margin-top: 25px;
-    margin-left: 25px;
-    margin-right: 25px;
-}
 
 .titulo{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
