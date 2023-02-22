@@ -1,20 +1,50 @@
 const nomeBusca = document.querySelector(".input");
 const mensagemErro = document.querySelector("#mensagemErro");
-const botaoBuscar = document.querySelector("botão_buscar");
+const botaoBuscar = document.querySelector("#botao_buscar");
 const titulo = document.querySelector("#titulo");
 const ano = document.querySelector("#ano");
 const duracao = document.querySelector("#duracao");
 const genero = document.querySelector("#genero");
-const direto = document.querySelector("#direto");
+const diretor = document.querySelector("#diretor");
 const atores = document.querySelector("#atores");
-const poster = document.querySelector("#poster");
+const poster = document.querySelector(".poster");
 const sinopse = document.querySelector("#sinopse");
-
 const apiKey = "b8aa1791";
 const imgDefault = "./default_image.png";
 
 async function buscaFilme(nomeBusca){
-     const resposta = await fetch(`http://www.omdbapi.com/?t=${nomeBusca}&apikey=${apiKey}`);
-     return resposta.json();
-}
+  const resposta = await fetch(`http://www.omdbapi.com/?t=${nomeBusca}&apikey=${apiKey}`); // http://www.omdbapi.com/?i=tt3896198&apikey=b8aa1791
+  return resposta.json();
+};
 
+botaoBuscar.addEventListener("click", () => {
+  limparCampos();
+  core();
+});
+
+async function core(){
+  const filme = await buscaFilme(nomeBusca.value);
+  defineValores(filme);
+};
+
+function defineValores(filme){
+  titulo.textContent = filme.Title ?? "";
+  sinopse.textContent = filme.Plot ?? "";
+  ano.textContent = `Year: ${filme.Year ?? ""}`;
+  duracao.textContent = `Run time: ${filme.Runtime ?? ""}`;
+  genero.textContent = `Genre: ${filme.Genre ?? ""}`;
+  diretor.textContent = `Director: ${filme.Director ?? ""}`;
+  atores.textContent = `Actors: ${filme.Actors ?? ""}`;
+  poster.src = filme.Poster ?? imgDefault;
+};
+
+function limparCampos(){
+  titulo.textContent = titulo?.textContent ?? "";
+  sinopse.textContent = sinopse?.textContent ?? "";
+  ano.textContent = ano?.textContent ?? "";
+  duracao.textContent = duracao?.textContent ?? "";
+  genero.textContent = genero?.textContent ?? "";
+  diretor.textContent = diretor?.textContent ?? "";
+  atores.textContent = atores?.textContent ?? "";
+  poster.src = imgDefault;
+};
